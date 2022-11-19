@@ -7,6 +7,7 @@ import 'intl/locale-data/jsonp/pt-BR';
 
 import { theme } from './src/styles/theme';
 import { Home } from './src/screens/Home';
+import { ModalNewTables } from './src/components/ModalNewTable';
 
 export default function App() {
   const [fontsLoaded, isError] = useFonts({
@@ -19,6 +20,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <ModalNewTables />
       {!fontsLoaded ? (
         <View>
           <Text>Loading ....</Text>

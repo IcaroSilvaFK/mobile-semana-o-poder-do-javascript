@@ -11,18 +11,30 @@ export const Container = styled.SafeAreaView`
     padding-top: ${StatusBar.currentHeight}px;
   `}
 `;
+export const SubHeader = styled.View`
+  padding: 12px;
+`;
+export const SubHeaderText = styled.Text`
+  border: 1px solid ${({ theme }) => theme.colors.gray[200]};
+  background: ${({ theme }) => theme.colors.white};
+  padding: 12px;
+  border-radius: 8px;
+
+  font-family: ${({ theme }) => theme.fonts.general[400]};
+  color: ${({ theme }) => theme.colors.gray[800]};
+`;
 
 export const FooterContainer = styled.View`
   height: 100px;
   width: 100%;
   background: ${({ theme }) => theme.colors.white};
+
+  padding: 0 22px;
 `;
 export const Footer = styled.SafeAreaView`
   align-items: center;
   justify-content: center;
   flex: 1;
-
-  padding: 0 22px;
 `;
 
 export const Body = styled.View`
@@ -35,4 +47,13 @@ export const HeaderBody = styled.View`
 
 export const ContentBody = styled.View`
   flex: 1;
+`;
+
+export const Divider = styled.View`
+  height: 1px;
+  width: 100%;
+
+  margin: 12px 0;
+
+  background: ${({ theme }) => theme.colors.gray[100]};
 `;

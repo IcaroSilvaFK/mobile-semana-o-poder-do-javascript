@@ -15,6 +15,14 @@ export const theme = {
     },
     white: '#fff',
     black: '#000',
+    rgba: {
+      dark: {
+        alpha01: 'rgba(0,0,0,0.2)',
+      },
+      white: {
+        alpha04: 'rgba(255,255,255,0.4)',
+      },
+    },
   },
   fonts: {
     general: {
