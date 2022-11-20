@@ -17,6 +17,7 @@ interface ICardProducts {
   image: string;
   description: string;
   price: number | string;
+  selectProductFromMoreDetails(): void;
 }
 
 export function CardProduct({
@@ -24,11 +25,12 @@ export function CardProduct({
   image,
   price,
   title,
+  selectProductFromMoreDetails,
 }: ICardProducts) {
   const { colors } = useTheme();
 
   return (
-    <Container>
+    <Container onPress={selectProductFromMoreDetails}>
       <Image source={{ uri: image }} />
       <ContainerContent>
         <Heading>{title}</Heading>

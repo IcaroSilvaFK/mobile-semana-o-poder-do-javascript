@@ -8,8 +8,6 @@ import {
   Body,
   Container,
   ContentBody,
-  Footer,
-  FooterContainer,
   HeaderBody,
   Divider,
   SubHeader,
@@ -18,21 +16,32 @@ import {
 
 import { categories } from '../../mocks/categories';
 import { products } from '../../mocks/products';
-import { ModalNewTables } from '../../components/ModalNewTable';
-import { ModalNewTableIsOpenAtom, TableOrder } from '../../atoms';
+import {
+  ModalProductIsOpenAtom,
+  ProductFromModalMoreDetailsProduct,
+  TableOrder,
+} from '../../atoms';
+import { Footer } from '../../components/Footer';
+import { IProductProps } from '../../@types/IProducts';
 
 export function Home() {
   const [tabOpen, setTabOpen] = useState('');
-  const [, seIsOpenModalNewTable] = useAtom(ModalNewTableIsOpenAtom);
   const [table] = useAtom(TableOrder);
+  const [, setModalProductMoreDetailsIsOpen] = useAtom(ModalProductIsOpenAtom);
+  const [, setProductFromMoreDetails] = useAtom(
+    ProductFromModalMoreDetailsProduct,
+  );
 
   function handleSetTabOpen(tab: string) {
     const isTabOpen = tabOpen === tab ? '' : tab;
     setTabOpen(isTabOpen);
   }
 
-  function openNewTableModal() {
-    seIsOpenModalNewTable(true);
+  function handleOpenAndSetProductInModalProductMoreDetails(
+    product: IProductProps,
+  ) {
+    setProductFromMoreDetails(product);
+    setModalProductMoreDetailsIsOpen(true);
   }
 
   return (
@@ -73,17 +82,16 @@ export function Home() {
                   image={item.imagePath}
                   price={item.price}
                   title={item.name}
+                  selectProductFromMoreDetails={() =>
+                    handleOpenAndSetProductInModalProductMoreDetails(item)
+                  }
                 />
               )}
             />
           </ContentBody>
         </Body>
       </Container>
-      <FooterContainer>
-        <Footer>
-          <Button onPress={openNewTableModal}>Novo Pedido</Button>
-        </Footer>
-      </FooterContainer>
+      <Footer />
     </>
   );
 }

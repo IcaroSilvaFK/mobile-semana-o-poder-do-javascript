@@ -24,19 +24,6 @@ export const SubHeaderText = styled.Text`
   color: ${({ theme }) => theme.colors.gray[800]};
 `;
 
-export const FooterContainer = styled.View`
-  height: 100px;
-  width: 100%;
-  background: ${({ theme }) => theme.colors.white};
-
-  padding: 0 22px;
-`;
-export const Footer = styled.SafeAreaView`
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-`;
-
 export const Body = styled.View`
   flex: 1;
 `;
